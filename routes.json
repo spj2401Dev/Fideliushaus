@@ -1,0 +1,19 @@
+{
+    "finger weg": "Do not do stupid shit. This is a live enviorment. If you don't know what you are doin'. Don't.",
+    "index": "/public/app/index.html",
+    "/indexstyle.css": "/public/app/style.css",
+    "/favicon.ico": "/public/images/favicon.ico",
+    "/paralax.js": "/public/libs/paralax.js",
+    "/app.js": "/public/app/app.js",
+    "/anfahrt.pdf": "/public/pdfs/anfahrt-fideliushaus_de.pdf",
+    "/404": "/public/error/index.html",
+    "/error/": "/public/error/index.html",
+    "/errorstyle.css": "/public/error/style.css",
+    "/errorscript.js": "/public/error/app.js",
+    "/impressum": "/public/legal/impressum.html",
+    "/datenschutz": "/public/legal/datenschutz.html",
+    "/legal.css": "/public/legal/legal.css",
+    "/anfahrt.htm": "/public/pdfs/anfahrt-fideliushaus_de.pdf",
+    "/gaesteinfo.pdf": "/public/pdfs/Gaesteinfos.pdf",
+    "/faq.pdf": "/public/pdfs/FAQ.pdf"
+}

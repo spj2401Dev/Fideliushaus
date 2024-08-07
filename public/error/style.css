@@ -1,0 +1,70 @@
+body {
+    background-image: url("/api/gallery/both");
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: 'FiraSans-Black', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.errortext {
+    color: #ffffffaa;
+    font-size: 35vw;
+    font-weight: 900;
+    text-align: center;
+    width: 100%;
+}
+
+.errorsubtext {
+    color: #ffffff;
+    font-size: 5vw;
+    font-family: 'FiraSans-Regular', sans-serif;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.Facebook {
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    color: white;
+    font-family: 'FiraSans-Regular', sans-serif;
+}
+
+.shadow-2 {
+    text-shadow: 0px 0px 20px #000000, 0px 0px 20px #000000;
+}
+
+.back {
+    width: 400px;
+    height: 50px;
+    background: none;
+    border: 1px solid white;
+    border-radius: 99px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'FiraSans-Regular', sans-serif;
+    color: white;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.back:hover {
+    border-radius: 5px;
+    border: 2px solid white;
+    transition: 0.3s;
+}

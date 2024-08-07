@@ -1,0 +1,528 @@
+:root {
+    --green-100: #9EA729; 
+    --green-200: #7d8500;
+    --walnut-brown-100: #4C1E0B;
+    --walnut-brown-900: #FFE6A9;
+    --orange-100: #B23805;
+    --orange-200: #7b2703;
+    --gray-100: #23303C;
+}
+
+body {
+    background-color: var(--green-100);
+    margin: 0px;
+    padding: 0px;
+    font-family: 'FiraSans-Regular', sans-serif;
+    overflow-x: hidden;
+} 
+
+header {
+    width: 100%;
+    height: 85px;
+    z-index: 10;
+    position: absolute;
+}
+
+.logo {
+    height: 12vw;
+    max-height: 180px;
+    display: flex;
+    justify-content: start;
+    align-items: center; 
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+
+.logoimg {
+    height: 12vw;
+    max-height: 180px;
+    min-height: 70px;
+    margin-top: 6px;
+    z-index: 10;
+    transition: all 0.5s ease;
+    background-color: transparent;
+    padding-top: 35px;
+    padding-left: 200px;
+}
+
+@media screen and (max-width: 1600px) {
+    .logo {
+        height: 10vw;
+        max-height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        transition: all 0.5s ease;
+    }
+
+    .logoimg {
+        height: 10vw;
+        max-height: 150px;
+        min-height: 70px;
+        margin-top: 6px;
+        z-index: 10;
+        transition: all 0.5s ease;
+        background-color: transparent;
+        padding-top: 35px;
+        padding-left: 0;
+    }
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+    z-index: 0;
+}
+
+#heroimg {
+    object-fit: cover;
+    z-index: 0;
+    width: 100%;
+    height: 100%
+}
+
+/* .hero::before {
+    content: "";
+    position: absolute;
+    top: calc(100% - 160px);
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(158, 167, 41, 0), #9EA729 50%);
+    z-index: 1;
+} 
+*/
+
+.welcome {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    height: auto;
+    transition: all 0.5s ease;
+    z-index: 101;
+    width: 40%;
+    padding: 0px;
+    padding-left: 50px;
+    padding-bottom: 40px;
+    padding-right: 50px;
+    margin: 0px;
+    color: var(--walnut-brown-900);
+    background-color: var(--walnut-brown-100);
+}
+
+@media screen and (max-width: 1280px) {
+    .welcome {
+        top: 40%;
+        left: 50%;
+        width: 60%;
+        transform: translateX(-50%);
+    }
+
+    .welcome-box {
+        width: 100%;
+    }
+
+    .welcome-buttons {
+        width: 620px !important;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .welcome {
+        top: 40%;
+        left: 50%;
+        width: calc(100% - 100px);
+        transform: translateX(-50%);
+    }
+
+    .welcomebuttons > button:last-child {
+        display: none;
+    }
+}
+
+.Welcome-Header {
+    margin: 0px;
+    font-weight: 300;
+    font-size: 44px;
+}
+
+.Welcome-End {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: white;
+    font-size: 24px;
+}
+
+.line {
+    background-color: var(--walnut-brown-900);
+    width: 158px;
+    height: 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Welcome-Middle {
+    color: white;
+    font-size: 24px;
+}
+
+.ZimmerComponent {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Zimmer {
+    background-color: var(--green-200);
+}
+
+.FerienwohnungenHeader,
+.ZimmerHeader {
+    background-color: var(--walnut-brown-100);
+    font-size: 22px;
+    padding-left: 50px;
+    padding-top: 10px;
+    width: 480px;
+    margin: 0px;
+    height: 66px;
+    color: white;
+    text-align: right;
+}
+
+@media screen and (max-width: 800px) {
+    .FerienwohnungenHeader,
+    .ZimmerHeader {
+        width: 300px;
+        height: 59px;
+        font-size: 18px;
+    }
+}
+
+.FerienwohnungenHeader {
+    margin-top: -25px;
+    padding-top: 5px;
+}
+
+.ZimmerHeaderText {
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.Zimmer,
+.ZimmerComponentPictures img {
+    width: 100%;
+}
+
+.ZimmerComponentPictures {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ZimmerComponentPictures img {
+    height: 480px !important;
+    object-fit: cover;
+}
+
+.ZimmerComponentPictures img:first-child {
+    width: 70%;
+    margin-right: 50px;
+}
+
+.ZimmerComponentPictures img:last-child {
+    width: 30%;
+}
+
+@media screen and (max-width: 1500px) {
+    .ZimmerComponentPictures img {
+        height: 400px !important;
+    }
+
+    .ZimmerComponentPictures img:first-child {
+        width: 60%;
+        margin-right: 10px;
+    }
+
+    .ZimmerComponentPictures img:last-child {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .ZimmerComponentPictures img {
+        height: 400px !important;
+    }
+
+    .ZimmerComponentPictures img:first-child {
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .ZimmerComponentPictures img:last-child {
+        display: none;
+    }
+}
+
+.Zimmerparagraph {
+    font-size: 24px;
+    margin-top: 50px;
+    padding-left: 100px;
+    padding-right: 120px;
+    text-align: left;
+    color: white;
+    font-weight: normal;
+    padding-bottom: 100px;
+}
+
+@media screen and (max-width: 800px) {
+    .Zimmerparagraph {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        font-size: 20px !important;
+    }
+}
+
+.Zimmer-background {
+    background-color: var(--green-200);
+}
+
+.Zimmerimg {
+    height: 480px !important;
+    object-fit: cover;
+}
+
+.Map {
+    margin-top: 150px;
+}
+
+.mapimg {
+    width: 100%;
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    background-image: url("/Location.webp");
+}
+
+@media screen and (max-width: 800px) {
+    .mapimg {
+        height: 400px;
+    }
+}
+
+.lageplancontainer {
+    background-color: var(--green-100);
+    font-size: 22px;
+    width: 480px;
+    margin: 0px;
+    margin-top: -100px;
+    height: 66px;
+    color: white;
+    text-align: right;
+}
+
+.lageplanheader {
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 500;
+    padding-top: 13px;
+    padding-left: 45px;
+}
+
+@media screen and (max-width: 800px) {
+    .lageplancontainer {
+        width: 300px;
+        height: 59px;
+        font-size: 18px;
+    }
+
+    .lageplanheader {
+        padding-left: 30px;
+    }
+}
+
+.brown-background {
+    width: 100%;
+}
+
+.lagecontainer {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: var(--walnut-brown-100);
+}
+
+.location-dot {
+    fill: #FFEF89;
+}
+
+.location-dot {
+    height: 40px;
+    width: 40px;
+}
+
+.Lageplantext {
+    text-align: left !important;
+    max-width: 775px;
+}
+
+.yellowish {
+    color: #FFEF89 !important;
+    margin-top: -75px;
+}
+
+.tag {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--walnut-brown-100);
+}
+
+@media screen and (max-width: 800px) {
+    .tag {
+        width: 95% !important;
+    }
+
+    .ZimmerComponent {
+        width: 95% !important;
+    }
+}
+
+.divider {
+    margin-top: 50px
+}
+
+.divider-2 {
+    margin-top: 150px;
+}
+
+.divider-3 {
+    height: 175px;
+    margin-top: -25px;
+}
+
+.btoo {
+    background-color: var(--walnut-brown-100);
+}
+
+.oneimg {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.FckTrm {
+    background-color: white;
+    height: 1267px;
+}
+
+@media screen and (max-width: 1279px) {
+    .FckTrm {
+        height: 1075px;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .FckTrm {
+        height: 775px;
+    }
+    
+}
+
+@media screen and (max-width: 597px) {
+    .FckTrm {
+        height: 800px;
+    }
+}
+
+.facebook {
+    background-image: url("/api/gallery/facebook");
+    height: 550px;
+    background-size: cover;
+    background-position: center;
+}
+
+.instagram {
+    background-image: url("/api/gallery/instagram");
+    height: 550px;
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 800px) {
+    .facebook {
+        height: 300px;
+    }
+
+    .instagram {
+        height: 300px;
+    }
+}
+
+.facebooktext, .instagramtext {
+    margin-top: auto;
+}
+
+.welcomebuttons {
+    margin-left: -45px;
+    width: 620px !important;
+}
+
+.welcomebuttons > button {
+    background-color: var(--orange-100);
+    height: 50px;
+    color: white;
+    border: none;
+    margin: 0px;
+    font-size: 18px;
+    z-index: 102;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-right: -5px;
+    margin-left: -5px;
+    font-family: 'FiraSans-Regular', sans-serif;
+}
+
+.welcomebuttons > button:hover {
+    background-color: var(--orange-200);
+}
+
+.impressum-background {
+    background-color: var(--gray-100) !important;
+}
+
+.shadow-2 {
+    text-shadow: 0px 0px 20px #000000, 0px 0px 20px #000000;
+}
+
+.socials {
+    padding-bottom: 150px;
+}
+
+.socials-text {
+    padding-bottom: 10px !important;
+}
+
+.socials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .socials-grid {
+        grid-template-columns: none !important;
+        width: auto;
+    }
+}
+
+a {
+    color: var(--green-100);
+}

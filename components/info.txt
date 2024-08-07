@@ -1,0 +1,17 @@
+ Fideliushaus Webserver startet...
+  _____ _     _      _ _           _                     
+ |  ___(_) __| | ___| (_)_   _ ___| |__   __ _ _   _ ___ 
+ | |_  | |/ _` |/ _ \ | | | | / __| '_ \ / _` | | | / __|
+ |  _| | | (_| |  __/ | | |_| \__ \ | | | (_| | |_| \__ \
+ |_|   |_|\__,_|\___|_|_|\__,_|___/_| |_|\__,_|\__,_|___/
+
+---------------------------------------------------------
+Starte Fideliushaus Web Server
+Version 1.0.1a - The forever release™
+
+Changelog:
+- Fideliushaus Instagram Account hinzugefügt
+- Website auf Mobilgeräten optimiert
+- Performance Verbesserungen
+- SEO Optimierungen
+---------------------------------------------------------

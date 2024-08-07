@@ -1,0 +1,1 @@
+function toAnker(e){document.getElementById(e).scrollIntoView({behavior:"smooth"})}function LinkTo(e){window.open(e,"_blank")}window.onload=function(){document.querySelector("iframe").src="https://gaestehaus-fideliushaus.tramino.de/api/widgets/timetable"};

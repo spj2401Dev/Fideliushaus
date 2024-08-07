@@ -8,6 +8,10 @@ const getIp = require('./components/getip.js');
 const logger = require('./components/logger.js');
 const compression = require('compression');
 const https = require('https');
+let editjsonfile = require("edit-json-file");
+// Routes
+const faqRoutes = require('./routes/faqRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 const info = fs.readFileSync(__dirname + '/components/info.txt', 'utf8');
 console.log(info);
@@ -17,6 +21,7 @@ startup(); // Checks if the routes.json file is valid
 const routes = JSON.parse(fs.readFileSync('routes.json'));
 
 app.use(compression());
+app.use(express.json());
 
 app.use(express.static('public/images')); // Images and Fonts are served by default. No need to define them in the routes.json file.
 app.use(express.static('public/fonts'));
@@ -25,7 +30,6 @@ app.use(express.static('public/fonts'));
 //     key: fs.readFileSync('/etc/letsencrypt/live/fideliushaus.de-0001/privkey.pem'),
 //     cert: fs.readFileSync('/etc/letsencrypt/live/fideliushaus.de-0001/fullchain.pem'),
 // };
-
 
 app.get("/:page", function(req, res) {
     const page = `/${req.params.page}`;
@@ -92,6 +96,9 @@ app.get("/api/gallery/:type", (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+
+app.use('/api', faqRoutes);
+app.use('/admin', adminRoutes);
 
 app.use(function(req, res, next) { // This function has to be the last! It handels 404's, not handeled by the initital 404 handler.
     if (routes["/404"]) { // If anything is below this, it will not be routed!

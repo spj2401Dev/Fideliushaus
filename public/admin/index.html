@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fideliushaus - Admin</title>
+</head>
+
+<body>
+    <h1>FAQ - Admin</h1>
+    <p>Verwaltung der FAQ Elemente auf der Website und auf Google</p>
+    <h2>Neues FAQ Element erstellen</h2>
+    <form id="faqForm">
+        <label for="question">Frage</label> <br>
+        <input type="text" name="question" id="question" required style="width: 500px;"> <br>
+        <label for="answer">Antwort</label> <br>
+        <textarea name="answer" id="answer" required style="width: 500px; height: 100px;"></textarea> <br> <br>
+        <button type="submit">FAQ Element erstellen</button>
+    </form>
+
+    <h2>FAQ:</h2>
+    <hr>
+    <div id="faq-container"></div>
+
+
+    <script>
+        // Script is here because I don't want to authenticate another endpoint and I cannot serve the js file over the routes.
+        // Attention all future devs. This is bad code. Don't do this at home.
+
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+
+        document.getElementById('faqForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const question = document.getElementById('question').value;
+            const answer = document.getElementById('answer').value;
+
+            if (question.includes(".")) {
+                alert("In der Frage dürfen keine Punkte sein. (.)"); // bad code
+                return;
+            }
+
+            const response = await fetch('/api/faq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: question,
+                    description: answer
+                })
+            });
+
+            if (response.ok) {
+                alert('FAQ added successfully');
+                loadFAQ(); // Reload FAQs after adding a new one
+            } else {
+                alert('Error adding FAQ');
+            }
+        });
+
+        async function loadFAQ() {
+            const response = await fetch('/api/faq');
+            const faq = await response.json();
+
+            const faqContainer = document.getElementById('faq-container');
+            faqContainer.innerHTML = '';
+
+            Object.keys(faq).forEach(function (key) {
+                const title = escapeHTML(key);
+                const description = escapeHTML(faq[key]);
+
+                const faqElement = document.createElement('div');
+                faqElement.innerHTML = `
+                <h3>${title}</h3>
+                <p>${description}</p>
+                <button data-title="${encodeURIComponent(key)}" class="delete-btn">Delete</button>`;
+
+                faqContainer.appendChild(faqElement);
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const title = decodeURIComponent(this.getAttribute('data-title'));
+                    deleteFAQ(title);
+                });
+            });
+        }
+
+        async function deleteFAQ(title) {
+            if (!confirm("Are you sure you want to delete this FAQ?")) {
+                return;
+            }
+            try {
+                const response = await fetch('/api/faq', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ title: title })
+                });
+
+                if (response.ok) {
+                    alert("FAQ deleted successfully");
+                    loadFAQ();
+                } else {
+                    alert("Failed to delete FAQ");
+                }
+            } catch (error) {
+                console.error("Error deleting FAQ:", error);
+                alert("An error occurred while deleting the FAQ");
+            }
+        }
+
+        loadFAQ();
+    </script>
+
+</body>
+
+</html>

@@ -12,6 +12,7 @@
     <meta name="keywords" content="Oberstdorf, Fideliushaus, Alpen, Urlaub, Ferienwohnung, Rad, Skifahren, Wandern, Gästehaus, Zimmer, Pension">
     <meta name="author" content="Gero Wortmann (www.gerowortmann.com) Webdesign; Jakob Joas">
     <meta name="robots" content="index, follow">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="66371ecd-3757-4052-b5a1-144429293903"></script>
 </head>
 
 <body>
@@ -26,9 +27,9 @@
 
         <div class="welcome">
             <div class="welcomebuttons">
-                <button onclick="toAnker('Belegungsplan')">Belegungsplan</button>
-                <button onclick="LinkTo('https://gaestehaus-fideliushaus.tramino.de')"><i class="fa-solid fa-arrow-up-right-from-square"></i> Buchung</button>
-                <button onclick="toAnker('impressum')">Kontakt / Impressum</button>
+                <button onclick="toAnker('Belegungsplan')" data-umami-event="Zum Belegungsplan">Belegungsplan</button>
+                <button onclick="LinkTo('https://gaestehaus-fideliushaus.tramino.de')"><i class="fa-solid fa-arrow-up-right-from-square" data-umami-event="Zur Buchung"></i> Buchung</button>
+                <button onclick="toAnker('impressum')" data-umami-event="Zum Impressum">Kontakt / Impressum</button>
             </div>
                 <div class="line"></div> 
                 <h1 class="Welcome-Header">Herzlich Wilkommen im Fideliushaus!</h1>
@@ -138,8 +139,25 @@
                 <h2 class="lageplanheader">FAQ</h2>
             </div>
 
-            <div id="faq-container">
+            <div>
+                <img class="oneimg randomimg" src="/api/gallery/all" alt="Zufälliges Foto von einem unsere Socials" loading="lazy">
+            </div>
 
+            <div id="faq-container">
+            </div>
+
+            <p class="Zimmerparagraph"></p>
+        </div>
+    </div>
+
+    <div class="brown-background btoo">
+        <div class="tag">
+            <div class="lageplancontainer">
+                <h2 class="lageplanheader">Highlights</h2>
+            </div>
+
+            <div>
+                <iframe width="1280" height="748" src="https://www.youtube.com/embed/TOm9LlHNhg0" title="Daniel being Daniel." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <p class="Zimmerparagraph"></p>

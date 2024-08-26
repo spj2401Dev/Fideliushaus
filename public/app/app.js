@@ -24,17 +24,23 @@ async function loadFAQ() {
 
         faqContainer.innerHTML = '';
 
-        const faqElements = Object.entries(faq).map(([key, description]) => {
+        // Iterate over the FAQ array to create the elements
+        faq.forEach(({ question, answer, icon }) => {
             const faqElement = document.createElement('div');
             faqElement.classList.add('faq-item');
-            faqElement.innerHTML = `
-                <h3 class="faq-title">${escapeHTML(key)}</h3>
-                <p class="faq-answer">${escapeHTML(description)}</p>
-            `;
-            return faqElement;
-        });
 
-        faqContainer.append(...faqElements);
+            faqElement.innerHTML = `
+                <div class="faq-icon-text">
+                    <i class="${escapeHTML(icon)} faq-icon"></i>
+                    <div>
+                        <h3 class="faq-title">${escapeHTML(question)}</h3>
+                        <p class="faq-answer">${escapeHTML(answer)}</p>
+                    </div>
+                </div>
+            `;
+
+            faqContainer.appendChild(faqElement);
+        });
 
     } catch (error) {
         console.error('Failed to load FAQ:', error);

@@ -12,6 +12,9 @@
     <p>Verwaltung der FAQ Elemente auf der Website und auf Google</p>
     <h2>Neues FAQ Element erstellen</h2>
     <form id="faqForm">
+        <label for="icon">Icon</label> <br>
+        <input type="text" name="icon" id="icon" required style="width: 500px;"> <br>
+        <a href="https://fontawesome.com/" target="_blank">Font-Awsome Icon support</a> <br>
         <label for="question">Frage</label> <br>
         <input type="text" name="question" id="question" required style="width: 500px;"> <br>
         <label for="answer">Antwort</label> <br>
@@ -37,6 +40,7 @@
         document.getElementById('faqForm').addEventListener('submit', async function (event) {
             event.preventDefault();
 
+            const icon = document.getElementById('icon').value;
             const question = document.getElementById('question').value;
             const answer = document.getElementById('answer').value;
 
@@ -52,7 +56,8 @@
                 },
                 body: JSON.stringify({
                     title: question,
-                    description: answer
+                    description: answer,
+                    icon: icon
                 })
             });
 

@@ -10,15 +10,18 @@ const file = editJsonFile(path.join(__dirname, '..', 'data.json'));
 router.use(bodyParser.json());
 
 router.post("/faq", auth, (req, res) => {
-    const { title, description } = req.body;
+    const { title, description, icon } = req.body;
 
-    if (!title || !description) {
+    if (!title || !description || !icon) {
         return res.status(400).send("Bad Request");
     }
 
     const encodedTitle = encodeURIComponent(title);
 
-    file.set(`faq.${encodedTitle}`, description);
+    // Store the description and icon separately
+    file.set(`faq.${encodedTitle}.answer`, description);
+    file.set(`faq.${encodedTitle}.icon`, icon);
+
     file.save();
     res.status(200).send("FAQ added successfully");
 });
@@ -42,11 +45,18 @@ router.delete("/faq", auth, (req, res) => {
 router.get("/faq", (req, res) => {
     const faq = file.get("faq");
 
-    const decodedFaq = {};
+    const decodedFaq = [];
     for (const key in faq) {
         if (faq.hasOwnProperty(key)) {
-            const decodedKey = decodeURIComponent(key);
-            decodedFaq[decodedKey] = faq[key];
+            const decodedQuestion = decodeURIComponent(key);
+            const answer = faq[key].answer;
+            const icon = faq[key].icon || "fa-solid fa-question";
+
+            decodedFaq.push({
+                question: decodedQuestion,
+                answer: answer,
+                icon: icon
+            });
         }
     }
 

@@ -8,7 +8,6 @@ const getIp = require('./components/getip.js');
 const logger = require('./components/logger.js');
 const compression = require('compression');
 const https = require('https');
-let editjsonfile = require("edit-json-file");
 // Routes
 const faqRoutes = require('./routes/faqRoutes');
 const adminRoutes = require('./routes/adminRoutes');
@@ -122,7 +121,7 @@ const ip = getIp();
 // });
 
 app.listen(8080, ip, () => {
-    logger(`HTTP Traffic getting served on: ${ip}:8080`, "Info");
+    logger(`HTTP Traffic getting served on: ${ip}:${port}`, "Info");
 });
 
 redirect.listen(httpPort, ip, () => {

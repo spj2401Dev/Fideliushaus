@@ -529,16 +529,35 @@ a {
 
 .faq-item {
     background-color: #3b190b;
-    padding: 20px;
+    padding: 10px;
+    padding-left: 25px;
     color: white;
-    margin-bottom: 10px;
     text-align: left;
+    border-bottom: 1px solid #4c1e0b;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
 }
 
 .faq-title {
-    
+    cursor: pointer;
 }
 
 .faq-answer {
+    transition: height 0.3s ease-out, padding 0.3s ease-out;
+    margin: 0px;
+    padding-bottom: 0px;
+    padding-right: 35px;
+}
 
+.faq-active + .faq-answer {
+    padding-bottom: 15px;
+}
+
+.faq-collapse-icon {
+    float: right;
+    font-size: 16px;
+    color: white;
+    margin-right: 20px;
 }
